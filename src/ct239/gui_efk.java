@@ -18,8 +18,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import Manegement.data.profile;
 import Manegement.data.vocabulary;
-import Manegement.topic.ChuDeQuiz;
-import Manegement.quiz;
 import data.panelVideo;
 
 /**
@@ -54,7 +52,6 @@ public class gui_efk extends javax.swing.JFrame {
         menuItem menuTopic1 =  new menuItem(iconSubMenu, "English Topic 007: Animals", new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                content.add(new quiz());
             }
         });
         menuItem menuTopic2 =  new menuItem(iconSubMenu, "English Topic 002: Colors", null);
