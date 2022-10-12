@@ -41,6 +41,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         cbxBugsAndInsects.setEnabled(false);
         cbxColors.setEnabled(false);
         checkboxTopic();
+        LoadBG();
     }
 
     public void loadListTopic() {
@@ -50,9 +51,9 @@ public class ChuDeQuiz extends javax.swing.JPanel {
     }
 
     public void Topic1() {
-        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Vocabulary\\Animal\\Cat.jpg");
+        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Vocabulary\\Animal\\Rabbit.jpg");
         Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(248, 158, Image.SCALE_SMOOTH);
+        Image newImg = img.getScaledInstance(170, 100, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         lblImgTopic1.setIcon(image);
     }
@@ -60,17 +61,25 @@ public class ChuDeQuiz extends javax.swing.JPanel {
     public void Topic2() {
         ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Vocabulary\\Bugs and insects\\Bee.jpg");
         Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(248, 158, Image.SCALE_SMOOTH);
+        Image newImg = img.getScaledInstance(170, 100, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         lblImgTopic2.setIcon(image);
     }
 
     public void Topic3() {
-        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Vocabulary\\Color\\Grey.jpg");
+        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Vocabulary\\Color\\Blue.jpg");
         Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(248, 158, Image.SCALE_SMOOTH);
+        Image newImg = img.getScaledInstance(170, 100, Image.SCALE_SMOOTH);
         ImageIcon image = new ImageIcon(newImg);
         lblImgTopic3.setIcon(image);
+    }
+    
+    public void LoadBG() {
+        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Background\\18.jpg");
+        Image img = MyImage.getImage();
+        Image newImg = img.getScaledInstance(1200, 530, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(newImg);
+        lblBg.setIcon(image);
     }
 
     /**
@@ -97,6 +106,10 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         lession3 = new javax.swing.JPanel();
         lbl3 = new javax.swing.JLabel();
         lblImgTopic3 = new javax.swing.JLabel();
+        lession4 = new javax.swing.JPanel();
+        lbl4 = new javax.swing.JLabel();
+        lblImgTopic4 = new javax.swing.JLabel();
+        lblBg = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         Header = new javax.swing.JPanel();
@@ -125,21 +138,22 @@ public class ChuDeQuiz extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(30, 50, 30, 50));
-        jPanel3.setLayout(new java.awt.GridLayout(1, 0, 20, 20));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         AnimalTopic.setBackground(new java.awt.Color(240, 248, 255));
         AnimalTopic.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true), javax.swing.BorderFactory.createTitledBorder(null, "LIST TEST", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 20)))); // NOI18N
         AnimalTopic.setAutoscrolls(true);
-        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 80, 20);
+        AnimalTopic.setOpaque(false);
+        java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 40, 20);
         flowLayout1.setAlignOnBaseline(true);
         AnimalTopic.setLayout(flowLayout1);
 
         lession1.setBackground(new java.awt.Color(255, 255, 255));
         lession1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lession1.setPreferredSize(new java.awt.Dimension(250, 200));
+        lession1.setPreferredSize(new java.awt.Dimension(220, 160));
         lession1.setLayout(new java.awt.BorderLayout());
 
-        lbl1.setBackground(new java.awt.Color(0, 255, 153));
+        lbl1.setBackground(new java.awt.Color(153, 255, 255));
         lbl1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lbl1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl1.setText("Lession Topic 1");
@@ -161,10 +175,10 @@ public class ChuDeQuiz extends javax.swing.JPanel {
 
         lession2.setBackground(new java.awt.Color(255, 255, 255));
         lession2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lession2.setPreferredSize(new java.awt.Dimension(250, 200));
+        lession2.setPreferredSize(new java.awt.Dimension(220, 160));
         lession2.setLayout(new java.awt.BorderLayout());
 
-        lbl2.setBackground(new java.awt.Color(0, 255, 153));
+        lbl2.setBackground(new java.awt.Color(153, 255, 255));
         lbl2.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lbl2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl2.setText("Lession Topic 2 ");
@@ -186,10 +200,10 @@ public class ChuDeQuiz extends javax.swing.JPanel {
 
         lession3.setBackground(new java.awt.Color(255, 255, 255));
         lession3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        lession3.setPreferredSize(new java.awt.Dimension(250, 200));
+        lession3.setPreferredSize(new java.awt.Dimension(220, 160));
         lession3.setLayout(new java.awt.BorderLayout());
 
-        lbl3.setBackground(new java.awt.Color(0, 255, 153));
+        lbl3.setBackground(new java.awt.Color(153, 255, 255));
         lbl3.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         lbl3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl3.setText("Lession Topic 3");
@@ -209,7 +223,33 @@ public class ChuDeQuiz extends javax.swing.JPanel {
 
         AnimalTopic.add(lession3);
 
-        jPanel3.add(AnimalTopic);
+        lession4.setBackground(new java.awt.Color(255, 255, 255));
+        lession4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lession4.setPreferredSize(new java.awt.Dimension(220, 160));
+        lession4.setLayout(new java.awt.BorderLayout());
+
+        lbl4.setBackground(new java.awt.Color(153, 255, 255));
+        lbl4.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        lbl4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl4.setText("Lession Topic 4");
+        lbl4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+        lbl4.setOpaque(true);
+        lbl4.setPreferredSize(new java.awt.Dimension(274, 40));
+        lession4.add(lbl4, java.awt.BorderLayout.PAGE_START);
+
+        lblImgTopic4.setBackground(new java.awt.Color(255, 255, 255));
+        lblImgTopic4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImgTopic4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblImgTopic4MouseClicked(evt);
+            }
+        });
+        lession4.add(lblImgTopic4, java.awt.BorderLayout.CENTER);
+
+        AnimalTopic.add(lession4);
+
+        jPanel3.add(AnimalTopic, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 1098, 468));
+        jPanel3.add(lblBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 1100, 470));
 
         ListTopic.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -219,7 +259,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1198, Short.MAX_VALUE)
+            .addGap(0, 1200, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,39 +287,51 @@ public class ChuDeQuiz extends javax.swing.JPanel {
 
         jPanel1.add(Header, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setBackground(new java.awt.Color(240, 248, 255));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
         jPanel2.setPreferredSize(new java.awt.Dimension(1194, 146));
 
+        cbxDe.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(cbxDe);
         cbxDe.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         cbxDe.setText("Cấp độ dễ");
+        cbxDe.setAutoscrolls(true);
+        cbxDe.setBorderPainted(true);
+        cbxDe.setFocusPainted(false);
         cbxDe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDeActionPerformed(evt);
             }
         });
 
+        cbxTB.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(cbxTB);
         cbxTB.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         cbxTB.setText("Cấp độ trung bình");
+        cbxTB.setAutoscrolls(true);
+        cbxTB.setBorderPainted(true);
+        cbxTB.setFocusPainted(false);
         cbxTB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxTBActionPerformed(evt);
             }
         });
 
+        cbxKho.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(cbxKho);
         cbxKho.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         cbxKho.setText("Cấp độ khó");
+        cbxKho.setAutoscrolls(true);
+        cbxKho.setBorderPainted(true);
+        cbxKho.setFocusPainted(false);
         cbxKho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxKhoActionPerformed(evt);
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setText("Chọn cấp độ bài kiểm tra");
 
         testAll.setBackground(new java.awt.Color(255, 255, 204));
@@ -291,6 +343,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         cbxCHTN.setText("Câu hỏi trắc nghiệm");
         cbxCHTN.setAutoscrolls(true);
         cbxCHTN.setBorderPainted(true);
+        cbxCHTN.setFocusPainted(false);
         cbxCHTN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCHTNActionPerformed(evt);
@@ -303,6 +356,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         cbxCHDT.setText("Câu hỏi điền từ");
         cbxCHDT.setAutoscrolls(true);
         cbxCHDT.setBorderPainted(true);
+        cbxCHDT.setFocusPainted(false);
         cbxCHDT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxCHDTActionPerformed(evt);
@@ -317,6 +371,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         cbxAnimals.setText("Animals");
         cbxAnimals.setAutoscrolls(true);
         cbxAnimals.setBorderPainted(true);
+        cbxAnimals.setFocusPainted(false);
 
         cbxBugsAndInsects.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup3.add(cbxBugsAndInsects);
@@ -324,6 +379,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         cbxBugsAndInsects.setText("Bugs and insects");
         cbxBugsAndInsects.setAutoscrolls(true);
         cbxBugsAndInsects.setBorderPainted(true);
+        cbxBugsAndInsects.setFocusPainted(false);
 
         cbxColors.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup3.add(cbxColors);
@@ -331,6 +387,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         cbxColors.setText("Colors");
         cbxColors.setAutoscrolls(true);
         cbxColors.setBorderPainted(true);
+        cbxColors.setFocusPainted(false);
 
         javax.swing.GroupLayout testAllLayout = new javax.swing.GroupLayout(testAll);
         testAll.setLayout(testAllLayout);
@@ -385,7 +442,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
                         .addComponent(cbxKho))
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
-                .addComponent(testAll, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE))
+                .addComponent(testAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,7 +458,7 @@ public class ChuDeQuiz extends javax.swing.JPanel {
                             .addComponent(cbxDe)
                             .addComponent(cbxTB))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(testAll, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+            .addComponent(testAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -510,6 +567,10 @@ public class ChuDeQuiz extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblImgTopic3MouseClicked
 
+    private void lblImgTopic4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImgTopic4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lblImgTopic4MouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AnimalTopic;
@@ -536,12 +597,16 @@ public class ChuDeQuiz extends javax.swing.JPanel {
     private javax.swing.JLabel lbl1;
     private javax.swing.JLabel lbl2;
     private javax.swing.JLabel lbl3;
+    private javax.swing.JLabel lbl4;
+    private javax.swing.JLabel lblBg;
     private javax.swing.JLabel lblImgTopic1;
     private javax.swing.JLabel lblImgTopic2;
     private javax.swing.JLabel lblImgTopic3;
+    private javax.swing.JLabel lblImgTopic4;
     private javax.swing.JPanel lession1;
     private javax.swing.JPanel lession2;
     private javax.swing.JPanel lession3;
+    private javax.swing.JPanel lession4;
     private javax.swing.JPanel testAll;
     // End of variables declaration//GEN-END:variables
 }

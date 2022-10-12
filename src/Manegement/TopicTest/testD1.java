@@ -373,10 +373,11 @@ public class testD1 extends javax.swing.JFrame {
             pst = con.prepareStatement(url);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Lưu dữ liệu thành công.");
+            JOptionPane.showMessageDialog(this, "Số câu đúng: " + point + "\n" + "Tổng điểm: " + point * (10.0 / count));
+            this.setVisible(false);
         } catch (Exception e) {
+            e.printStackTrace();
         }
-        JOptionPane.showMessageDialog(this, "Số câu đúng: " + point + "\n" + "Tổng điểm: " + point * (10.0 / count));
-        this.setVisible(false);
     }
 
     private void rdbOption1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdbOption1ActionPerformed

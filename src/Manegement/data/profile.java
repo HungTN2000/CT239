@@ -248,7 +248,12 @@ public class profile extends javax.swing.JPanel {
         tblProfile.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tblProfile.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
                 "MÃ ND", "TÀI KHOẢN", "MẬT KHẨU", "HỌ VÀ TÊN", "GIỚI TÍNH", "NGÀY SINH", "ĐỊA CHỈ", "SDT", "EMAIL"

@@ -49,9 +49,12 @@ public class quizDT1 extends javax.swing.JFrame {
 
     int point = 0;
     int count = 0;
+    
+    private String username;
 
     public quizDT1() {
         initComponents();
+        //this.username = username;
         getConnection();
         loadData();
         loadTest();
@@ -59,6 +62,10 @@ public class quizDT1 extends javax.swing.JFrame {
         this.setResizable(false);
         btnSubmit.setEnabled(false);
     }
+
+//    private quizDT1() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     public void getConnection() {
         try {

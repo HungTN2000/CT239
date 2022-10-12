@@ -52,14 +52,20 @@ public class learnAll extends javax.swing.JFrame {
 
     int point = 0;
     int count = 0;
+    private String username;
 
     public learnAll() {
         initComponents();
+        //this.username = username;
         getConnection();
         loadTest();
         this.setResizable(false);
         //Topic();
     }
+
+//    private learnAll() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
 //    public void Topic() {
 //        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Background\\18.jpg");
@@ -68,7 +74,6 @@ public class learnAll extends javax.swing.JFrame {
 //        ImageIcon image = new ImageIcon(newImg);
 //        lblBg.setIcon(image);
 //    }
-
     public void getConnection() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -93,8 +98,6 @@ public class learnAll extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         Top = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         Main = new javax.swing.JPanel();
@@ -114,7 +117,6 @@ public class learnAll extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(800, 500));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 255, 102), 1, true));
@@ -122,21 +124,7 @@ public class learnAll extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         Top.setBackground(new java.awt.Color(255, 255, 204));
-        Top.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
-
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Đánh dấu từ đã học");
-        jLabel1.setAutoscrolls(true);
-
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/star_icon.png"))); // NOI18N
-        jLabel2.setAutoscrolls(true);
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
+        Top.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.green, java.awt.Color.green), javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153))));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/1646012_cancel_delete_error_exit_remove_icon.png"))); // NOI18N
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -152,11 +140,7 @@ public class learnAll extends javax.swing.JFrame {
         TopLayout.setHorizontalGroup(
             TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TopLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 488, Short.MAX_VALUE)
+                .addContainerGap(698, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
@@ -169,10 +153,7 @@ public class learnAll extends javax.swing.JFrame {
                 .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(TopLayout.createSequentialGroup()
-                        .addGroup(TopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -180,18 +161,22 @@ public class learnAll extends javax.swing.JFrame {
         jPanel1.add(Top, java.awt.BorderLayout.PAGE_START);
 
         Main.setBackground(new java.awt.Color(255, 255, 255));
-        Main.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED), javax.swing.BorderFactory.createEmptyBorder(30, 50, 30, 50)));
+        Main.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.green, java.awt.Color.green), javax.swing.BorderFactory.createEmptyBorder(30, 50, 30, 50)));
         Main.setPreferredSize(new java.awt.Dimension(550, 460));
         Main.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true)));
+        jPanel4.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
         jPanel4.setLayout(new java.awt.BorderLayout());
         jPanel4.add(lblImg, java.awt.BorderLayout.CENTER);
 
-        lblMaTV.setBackground(new java.awt.Color(127, 255, 212));
+        lblMaTV.setBackground(new java.awt.Color(255, 255, 255));
         lblMaTV.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lblMaTV.setText("CÂU");
+        lblMaTV.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblMaTV.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/9004689_star_favorite_like_award_rating_icon.png"))); // NOI18N
+        lblMaTV.setText("check");
+        lblMaTV.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 20));
+        lblMaTV.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         lblMaTV.setOpaque(true);
         lblMaTV.setPreferredSize(new java.awt.Dimension(34, 40));
         jPanel4.add(lblMaTV, java.awt.BorderLayout.PAGE_START);
@@ -201,12 +186,12 @@ public class learnAll extends javax.swing.JFrame {
         jPanel1.add(Main, java.awt.BorderLayout.CENTER);
 
         Option.setBackground(new java.awt.Color(127, 255, 212));
-        Option.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+        Option.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.green, java.awt.Color.green));
         Option.setPreferredSize(new java.awt.Dimension(300, 460));
-        Option.setLayout(new java.awt.BorderLayout());
+        Option.setLayout(new java.awt.BorderLayout(0, 10));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         java.awt.FlowLayout flowLayout1 = new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 60, 30);
         flowLayout1.setAlignOnBaseline(true);
         jPanel5.setLayout(flowLayout1);
@@ -231,7 +216,7 @@ public class learnAll extends javax.swing.JFrame {
 
         Option.add(jPanel5, java.awt.BorderLayout.CENTER);
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), javax.swing.BorderFactory.createEmptyBorder(20, 20, 10, 10)));
+        jPanel6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED), javax.swing.BorderFactory.createEmptyBorder(20, 20, 20, 20)));
         jPanel6.setOpaque(false);
         jPanel6.setPreferredSize(new java.awt.Dimension(348, 200));
         jPanel6.setLayout(new java.awt.GridLayout(3, 0, 20, 20));
@@ -252,6 +237,7 @@ public class learnAll extends javax.swing.JFrame {
 
         jPanel1.add(Option, java.awt.BorderLayout.EAST);
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.green, java.awt.Color.green));
         jPanel2.setOpaque(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(925, 50));
 
@@ -259,11 +245,11 @@ public class learnAll extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
+            .addGap(0, 794, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
+            .addGap(0, 46, Short.MAX_VALUE)
         );
 
         jPanel1.add(jPanel2, java.awt.BorderLayout.PAGE_END);
@@ -311,18 +297,6 @@ public class learnAll extends javax.swing.JFrame {
         }
         voiceLBL();
     }//GEN-LAST:event_btnPreviousActionPerformed
-
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        try {
-            String url = "insert into TuDaHoc values (?)";
-            pst = con.prepareStatement(url);
-            pst.setString(1, lblMaTV.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Lưu dữ liệu thành công.");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         frmMain g = new frmMain();
@@ -404,8 +378,6 @@ public class learnAll extends javax.swing.JFrame {
     private javax.swing.JPanel Top;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPrevious;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;

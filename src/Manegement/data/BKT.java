@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -87,6 +88,9 @@ public class BKT extends javax.swing.JPanel {
     public void show_V() {
         ArrayList<listBKT> list = listVocabularyManagement();
         DefaultTableModel model = (DefaultTableModel) tblBKT.getModel();
+        while(model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
         Object[] row = new Object[5];
         for (int i = 0; i < list.size(); i++) {
             row[0] = list.get(i).getMaBKT();
@@ -97,14 +101,17 @@ public class BKT extends javax.swing.JPanel {
             model.addRow(row);
         }
         JTableHeader Theader = tblBKT.getTableHeader();
-        
-        Theader.setBackground(new Color(255,215,0));
+
+        Theader.setBackground(
+                new Color(255, 215, 0));
         Theader.setForeground(Color.black);
-        
-        Theader.setFont(new Font("Tahome", Font.PLAIN, 16));
-        ((DefaultTableCellRenderer)Theader.getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
-        
-        tblBKT.setFont(new Font("Tahome", Font.PLAIN, 16));
+
+        Theader.setFont(
+                new Font("Tahome", Font.PLAIN, 16));
+        ((DefaultTableCellRenderer) Theader.getDefaultRenderer()).setHorizontalAlignment(JLabel.CENTER);
+
+        tblBKT.setFont(
+                new Font("Tahome", Font.PLAIN, 16));
     }
 
 //    public ImageIcon ResizeImage(String ImagePath) {
@@ -301,7 +308,16 @@ public class BKT extends javax.swing.JPanel {
         tblBKT.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         tblBKT.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
                 "MÃ BKT", "MÃ ND", "TÊN CẤP ĐỘ", "TÊN CHỦ ĐỀ", "ĐIỂM", "NGÀY KT"
@@ -386,10 +402,9 @@ public class BKT extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(RightTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtMaBKT, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
-                    .addGroup(RightTopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(cbbTenChuDe, javax.swing.GroupLayout.Alignment.LEADING, 0, 150, Short.MAX_VALUE)
-                        .addComponent(cbbTenCapDo, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE)
-                        .addComponent(cbbMaND, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE))
+                    .addComponent(cbbTenChuDe, 0, 235, Short.MAX_VALUE)
+                    .addComponent(cbbTenCapDo, 0, 1, Short.MAX_VALUE)
+                    .addComponent(cbbMaND, 0, 1, Short.MAX_VALUE)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDiem, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
                 .addContainerGap(66, Short.MAX_VALUE))

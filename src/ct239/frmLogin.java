@@ -81,11 +81,20 @@ public class frmLogin extends javax.swing.JFrame {
         lblTaiKhoan.setText("Tài Khoản");
         lblTaiKhoan.setPreferredSize(new java.awt.Dimension(60, 17));
         jPanel2.add(lblTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 11, 100, 35));
+
+        txtTaiKhoan.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtTaiKhoan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtTaiKhoanMouseEntered(evt);
+            }
+        });
         jPanel2.add(txtTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 11, 231, 35));
 
         lblPwd.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblPwd.setText("Mật Khẩu");
         jPanel2.add(lblPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 56, 100, 35));
+
+        txtPwd.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jPanel2.add(txtPwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 56, 231, 35));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -125,6 +134,8 @@ public class frmLogin extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("ĐĂNG NHẬP");
+        btnLogin.setAutoscrolls(true);
+        btnLogin.setFocusPainted(false);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -199,20 +210,14 @@ public class frmLogin extends javax.swing.JFrame {
         String selectedItem = cbbChoose.getSelectedItem().toString();
         DatabaseConnection database = new DatabaseConnection();
         try {
-            ResultSet rs = database.getStatement().executeQuery("Select * from NguoiDung WHERE MaND='" + txtTaiKhoan.getText() + "' and MatKhau='" + txtPwd.getText() + "'");
+            ResultSet rs = database.getStatement().executeQuery("Select * from NguoiDung WHERE TaiKhoan='" + txtTaiKhoan.getText() + "' and MatKhau='" + txtPwd.getText() + "'");
             if (rs.next()) {
-                if (selectedItem.equals("student")) {
+//                if (selectedItem.equals("student")) {
                     JOptionPane.showMessageDialog(register, "Login successful.");
-                    gui_efk g = new gui_efk();
+                    frmMain g = new frmMain(txtTaiKhoan.getText());
                     g.setVisible(true);
                     setVisible(false);
-                }
-                if (selectedItem.equals("admin")) {
-                    JOptionPane.showMessageDialog(register, "Login successful.");
-                    gui_efk g = new gui_efk();
-                    g.setVisible(true);
-                    setVisible(false);
-                }
+//                }
             } else {
                 JOptionPane.showMessageDialog(register, "Incorrect username or password");
             }
@@ -246,6 +251,10 @@ public class frmLogin extends javax.swing.JFrame {
         reg.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_lblSignUpMouseClicked
+
+    private void txtTaiKhoanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtTaiKhoanMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTaiKhoanMouseEntered
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {

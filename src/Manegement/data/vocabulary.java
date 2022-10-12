@@ -166,7 +166,7 @@ public class vocabulary extends javax.swing.JPanel {
 
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(1200, 830));
-        setLayout(new java.awt.BorderLayout(0, 10));
+        setLayout(new java.awt.BorderLayout());
 
         Header.setBackground(new java.awt.Color(176, 224, 230));
         Header.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));

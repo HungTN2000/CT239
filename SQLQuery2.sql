@@ -15,6 +15,8 @@ FROM TuVung V INNER JOIN CauHoiTN Q
 ON V.TenChuDe = Q.TenChuDe
 WHERE V.MaTV = 'TV001'
 
+Select HoTen from NguoiDung where TaiKhoan='admin'
+
 
 SELECT MaCHTN,CauHoi,DapAnA,DapAnB,DapAnC,DapAnD,CauTraLoi,HinhAnh,TenChuDe FROM CauHoiTN WHERE MaTV='TV001' 
 SELECT TOP 10 * FROM CauHoiTN where TenChuDe='Random' ORDER BY NEWID() 

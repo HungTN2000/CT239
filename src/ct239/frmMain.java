@@ -11,8 +11,9 @@ import data_class.frmReg;
 import Manegement.data.addQTN;
 import data.panelMusic;
 import Manegement.topicTNDT.ChuDeQuiz;
-import Manegement.NewJPanel;
+import Manegement.data.Learn;
 import Manegement.data.addQDT;
+import Manegement.data.home;
 import data.panelVideo;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -22,6 +23,12 @@ import Manegement.data.profile;
 import Manegement.data.vocabulary;
 import Manegement.data.result;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.table.DefaultTableModel;
+import user.Connect;
 
 /**
  *
@@ -32,40 +39,68 @@ public class frmMain extends javax.swing.JFrame {
     private JPanel childPanel;
     private JFrame frame;
 
+    DefaultTableModel tbn = new DefaultTableModel();
+    Connect a = new Connect();
+    Connection con = a.getConnection();
+    Statement st = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+
+    String fPath = null;
+    byte[] img_DATA;
+
+    //private String username;
+
     public frmMain() {
         initComponents();
+//        this.username = username;
+//        lblusername.setText(username);
         setTitle("Phần Mềm Hỗ Trợ Bé Học Tiếng Anh");
         setLocationRelativeTo(null);
-        main();
-        bgBuild();
+        childPanel = new home();
+        panelCenter.removeAll();
+        panelCenter.add(childPanel);
+        panelCenter.validate();
+        
+        btnHome.setBackground(new Color(0,255,127));
     }
 
-    public void main() {
-        bgBuild();
-    }
-
-    public void bgBuild() {
-        ImageIcon MyImage = new ImageIcon("C:\\Java-JSP\\duan9\\src\\img\\Background\\20.jpg");
-        Image img = MyImage.getImage();
-        Image newImg = img.getScaledInstance(lblbg.getWidth(), lblbg.getHeight(), Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(newImg);
-        lblbg.setIcon(image);
-    }
+//    private frmMain() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         Build = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        lblusername = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblLogin = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jPanel10 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanel12 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         panelLeft = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         Top = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         option = new javax.swing.JPanel();
-        btnProfile = new javax.swing.JButton();
-        btnVocabulary = new javax.swing.JButton();
-        btnHoc = new javax.swing.JButton();
+        btnHome = new javax.swing.JButton();
+        btnLearn = new javax.swing.JButton();
+        btnTest = new javax.swing.JButton();
         btnVideo = new javax.swing.JButton();
         btnMusic = new javax.swing.JButton();
         btnKtra = new javax.swing.JButton();
@@ -74,12 +109,7 @@ public class frmMain extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         panelCenter = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        lblbg = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        menuItemReg = new javax.swing.JMenuItem();
-        menuItemLogout = new javax.swing.JMenuItem();
-        menuItemLogut = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         menuItemTV = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
@@ -87,14 +117,101 @@ public class frmMain extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         menuItemBKT = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+
+        jMenuBar2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        Build.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED)));
-        Build.setPreferredSize(new java.awt.Dimension(1500, 830));
-        Build.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Build.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), null));
+        Build.setPreferredSize(new java.awt.Dimension(1500, 880));
+        Build.setLayout(new java.awt.BorderLayout());
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1492, 50));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setOpaque(false);
+        jPanel4.setPreferredSize(new java.awt.Dimension(250, 50));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setPreferredSize(new java.awt.Dimension(150, 50));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        lblusername.setBackground(new java.awt.Color(255, 255, 255));
+        lblusername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel7.add(lblusername, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.white), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
+        jPanel6.setPreferredSize(new java.awt.Dimension(50, 50));
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/user.png"))); // NOI18N
+        lblLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblLoginMouseClicked(evt);
+            }
+        });
+        jPanel6.add(lblLogin, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.white), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
+        jPanel8.setPreferredSize(new java.awt.Dimension(50, 50));
+        jPanel8.setLayout(new java.awt.BorderLayout());
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/211614_down_b_arrow_icon.png"))); // NOI18N
+        jPanel8.add(jLabel4, java.awt.BorderLayout.CENTER);
+
+        jPanel4.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, -1, -1));
+
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1245, 0, -1, -1));
+
+        jPanel9.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel9.setPreferredSize(new java.awt.Dimension(1250, 50));
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.white), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
+        jPanel10.setLayout(new java.awt.BorderLayout());
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Quản lý");
+        jPanel10.add(jLabel5, java.awt.BorderLayout.CENTER);
+
+        jPanel9.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 150, 50));
+
+        jPanel11.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED, java.awt.Color.white, java.awt.Color.white), javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED)));
+        jPanel11.setPreferredSize(new java.awt.Dimension(150, 50));
+        jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Hướng dẫn");
+        jPanel11.add(jLabel6, java.awt.BorderLayout.CENTER);
+
+        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, -1));
+
+        jPanel12.setPreferredSize(new java.awt.Dimension(100, 50));
+        jPanel12.setLayout(new java.awt.BorderLayout());
+        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 950, -1));
+
+        jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, -1));
+
+        Build.add(jPanel2, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -123,56 +240,64 @@ public class frmMain extends javax.swing.JFrame {
 
         jPanel3.add(Top, java.awt.BorderLayout.PAGE_START);
 
-        option.setOpaque(false);
+        option.setBackground(new java.awt.Color(255, 255, 255));
         option.setPreferredSize(new java.awt.Dimension(300, 780));
         option.setLayout(new java.awt.GridLayout(7, 0));
 
-        btnProfile.setBackground(new java.awt.Color(255, 255, 255));
-        btnProfile.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnProfile.setForeground(new java.awt.Color(51, 51, 51));
-        btnProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/173959_house_icon.png"))); // NOI18N
-        btnProfile.setText("Trang chủ");
-        btnProfile.setAutoscrolls(true);
-        btnProfile.setFocusPainted(false);
-        btnProfile.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnProfile.setIconTextGap(20);
-        btnProfile.setPreferredSize(new java.awt.Dimension(150, 50));
-        option.add(btnProfile);
-
-        btnVocabulary.setBackground(new java.awt.Color(255, 255, 255));
-        btnVocabulary.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnVocabulary.setForeground(new java.awt.Color(51, 51, 51));
-        btnVocabulary.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/learn.png"))); // NOI18N
-        btnVocabulary.setText("Học");
-        btnVocabulary.setAutoscrolls(true);
-        btnVocabulary.setDoubleBuffered(true);
-        btnVocabulary.setFocusPainted(false);
-        btnVocabulary.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnVocabulary.setIconTextGap(20);
-        btnVocabulary.setPreferredSize(new java.awt.Dimension(150, 50));
-        btnVocabulary.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setBackground(new java.awt.Color(255, 255, 255));
+        btnHome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnHome.setForeground(new java.awt.Color(51, 51, 51));
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/9004832_house_home_building_estate_icon.png"))); // NOI18N
+        btnHome.setText("Trang chủ");
+        btnHome.setAutoscrolls(true);
+        btnHome.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
+        btnHome.setFocusPainted(false);
+        btnHome.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnHome.setIconTextGap(20);
+        btnHome.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVocabularyActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
-        option.add(btnVocabulary);
+        option.add(btnHome);
 
-        btnHoc.setBackground(new java.awt.Color(255, 255, 255));
-        btnHoc.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        btnHoc.setForeground(new java.awt.Color(51, 51, 51));
-        btnHoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/writting.png"))); // NOI18N
-        btnHoc.setText("Kiểm tra");
-        btnHoc.setAutoscrolls(true);
-        btnHoc.setFocusPainted(false);
-        btnHoc.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnHoc.setIconTextGap(20);
-        btnHoc.setPreferredSize(new java.awt.Dimension(150, 50));
-        btnHoc.addActionListener(new java.awt.event.ActionListener() {
+        btnLearn.setBackground(new java.awt.Color(255, 255, 255));
+        btnLearn.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnLearn.setForeground(new java.awt.Color(51, 51, 51));
+        btnLearn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/6771580_book_education_learning_school_science_icon.png"))); // NOI18N
+        btnLearn.setText("Học");
+        btnLearn.setAutoscrolls(true);
+        btnLearn.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
+        btnLearn.setDoubleBuffered(true);
+        btnLearn.setFocusPainted(false);
+        btnLearn.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnLearn.setIconTextGap(20);
+        btnLearn.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnLearn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHocActionPerformed(evt);
+                btnLearnActionPerformed(evt);
             }
         });
-        option.add(btnHoc);
+        option.add(btnLearn);
+
+        btnTest.setBackground(new java.awt.Color(255, 255, 255));
+        btnTest.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnTest.setForeground(new java.awt.Color(51, 51, 51));
+        btnTest.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/writting.png"))); // NOI18N
+        btnTest.setText("Kiểm tra");
+        btnTest.setAutoscrolls(true);
+        btnTest.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
+        btnTest.setFocusPainted(false);
+        btnTest.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnTest.setIconTextGap(20);
+        btnTest.setPreferredSize(new java.awt.Dimension(150, 50));
+        btnTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTestActionPerformed(evt);
+            }
+        });
+        option.add(btnTest);
 
         btnVideo.setBackground(new java.awt.Color(255, 255, 255));
         btnVideo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -180,6 +305,7 @@ public class frmMain extends javax.swing.JFrame {
         btnVideo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/video.png"))); // NOI18N
         btnVideo.setText("Video");
         btnVideo.setAutoscrolls(true);
+        btnVideo.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
         btnVideo.setFocusPainted(false);
         btnVideo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnVideo.setIconTextGap(20);
@@ -199,6 +325,7 @@ public class frmMain extends javax.swing.JFrame {
         btnMusic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/9004842_music_sound_audio_media_icon.png"))); // NOI18N
         btnMusic.setText("Music ");
         btnMusic.setAutoscrolls(true);
+        btnMusic.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
         btnMusic.setFocusPainted(false);
         btnMusic.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnMusic.setIconTextGap(20);
@@ -215,6 +342,7 @@ public class frmMain extends javax.swing.JFrame {
         btnKtra.setForeground(new java.awt.Color(51, 51, 51));
         btnKtra.setText("Quiz");
         btnKtra.setAutoscrolls(true);
+        btnKtra.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
         btnKtra.setFocusPainted(false);
         btnKtra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnKtra.setIconTextGap(20);
@@ -231,6 +359,7 @@ public class frmMain extends javax.swing.JFrame {
         btnThanhTich.setForeground(new java.awt.Color(51, 51, 51));
         btnThanhTich.setText("Thành Tích");
         btnThanhTich.setAutoscrolls(true);
+        btnThanhTich.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED), javax.swing.BorderFactory.createEmptyBorder(5, 10, 5, 10)));
         btnThanhTich.setFocusPainted(false);
         btnThanhTich.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnThanhTich.setIconTextGap(20);
@@ -273,7 +402,7 @@ public class frmMain extends javax.swing.JFrame {
         jPanel1.add(panelLeft, java.awt.BorderLayout.WEST);
 
         panelCenter.setBackground(new java.awt.Color(255, 255, 255));
-        panelCenter.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelCenter.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelCenter.setOpaque(false);
         panelCenter.setLayout(new java.awt.BorderLayout());
 
@@ -281,65 +410,18 @@ public class frmMain extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Phần mềm hỗ trợ học Tiếng anh cho bé qua hình ảnh ");
+        jLabel1.setOpaque(true);
         panelCenter.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(panelCenter, java.awt.BorderLayout.CENTER);
 
-        Build.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 830));
-        Build.add(lblbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, 1500, 830));
+        Build.add(jPanel1, java.awt.BorderLayout.CENTER);
 
         jMenuBar1.setBackground(new java.awt.Color(204, 255, 204));
         jMenuBar1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         jMenuBar1.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jMenuBar1.setName(""); // NOI18N
         jMenuBar1.setPreferredSize(new java.awt.Dimension(1200, 49));
-
-        jMenu1.setBackground(new java.awt.Color(204, 255, 204));
-        jMenu1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jMenu1.setText("Menu");
-        jMenu1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jMenu1.setIconTextGap(50);
-
-        menuItemReg.setBackground(new java.awt.Color(255, 255, 224));
-        menuItemReg.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        menuItemReg.setText("Đăng ký");
-        menuItemReg.setMargin(new java.awt.Insets(10, 30, 10, 30));
-        menuItemReg.setOpaque(true);
-        menuItemReg.setPreferredSize(new java.awt.Dimension(320, 50));
-        menuItemReg.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemRegActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuItemReg);
-
-        menuItemLogout.setBackground(new java.awt.Color(255, 255, 224));
-        menuItemLogout.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        menuItemLogout.setText("Đăng nhập");
-        menuItemLogout.setMargin(new java.awt.Insets(10, 30, 10, 30));
-        menuItemLogout.setOpaque(true);
-        menuItemLogout.setPreferredSize(new java.awt.Dimension(320, 50));
-        menuItemLogout.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemLogoutActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuItemLogout);
-
-        menuItemLogut.setBackground(new java.awt.Color(255, 255, 224));
-        menuItemLogut.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        menuItemLogut.setText("Đăng xuất");
-        menuItemLogut.setMargin(new java.awt.Insets(10, 30, 10, 30));
-        menuItemLogut.setOpaque(true);
-        menuItemLogut.setPreferredSize(new java.awt.Dimension(320, 50));
-        menuItemLogut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemLogutActionPerformed(evt);
-            }
-        });
-        jMenu1.add(menuItemLogut);
-
-        jMenuBar1.add(jMenu1);
 
         jMenu4.setBackground(new java.awt.Color(204, 255, 204));
         jMenu4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -430,13 +512,6 @@ public class frmMain extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu2.setBackground(new java.awt.Color(204, 255, 204));
-        jMenu2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jMenu2.setText("Help");
-        jMenu2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jMenu2.setIconTextGap(50);
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -472,44 +547,31 @@ public class frmMain extends javax.swing.JFrame {
         panelCenter.validate();
     }//GEN-LAST:event_btnMusicActionPerformed
 
-    private void menuItemRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRegActionPerformed
-        if (frame == null) {
-            frame = new frmReg();
-        }
-        frame.setVisible(true);
-    }//GEN-LAST:event_menuItemRegActionPerformed
-
-    private void menuItemLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLogoutActionPerformed
-        if (frame == null) {
-            frame = new frmLogin();
-        }
-        frame.setVisible(true);
-    }//GEN-LAST:event_menuItemLogoutActionPerformed
-
-    private void menuItemLogutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemLogutActionPerformed
-        if (frame == null) {
-            frame = new frmIndex();
-        }
-        frame.setVisible(true);
-    }//GEN-LAST:event_menuItemLogutActionPerformed
-
-    private void btnVocabularyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVocabularyActionPerformed
-        childPanel = new NewJPanel();
+    private void btnLearnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLearnActionPerformed
+        childPanel = new Learn();
         panelCenter.removeAll();
         panelCenter.add(childPanel);
         panelCenter.validate();
-    }//GEN-LAST:event_btnVocabularyActionPerformed
+        
+        btnHome.setBackground(Color.white);
+        btnLearn.setBackground(new Color(0,255,127));
+        btnTest.setBackground(Color.white);
+    }//GEN-LAST:event_btnLearnActionPerformed
 
     private void btnKtraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKtraActionPerformed
-        
+
     }//GEN-LAST:event_btnKtraActionPerformed
 
-    private void btnHocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHocActionPerformed
+    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
         childPanel = new ChuDeQuiz();
         panelCenter.removeAll();
         panelCenter.add(childPanel);
         panelCenter.validate();
-    }//GEN-LAST:event_btnHocActionPerformed
+        
+        btnHome.setBackground(Color.white);
+        btnLearn.setBackground(Color.white);
+        btnTest.setBackground(new Color(0,255,127));
+    }//GEN-LAST:event_btnTestActionPerformed
 
     private void btnThanhTichActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThanhTichActionPerformed
         childPanel = new result();
@@ -553,6 +615,22 @@ public class frmMain extends javax.swing.JFrame {
         panelCenter.validate();
     }//GEN-LAST:event_menuItemBKTActionPerformed
 
+    private void lblLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblLoginMouseClicked
+        frame = new frmLogin();
+        frame.setVisible(true);
+    }//GEN-LAST:event_lblLoginMouseClicked
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        childPanel = new home();
+        panelCenter.removeAll();
+        panelCenter.add(childPanel);
+        panelCenter.validate();
+        
+        btnHome.setBackground(new Color(0,255,127));
+        btnLearn.setBackground(Color.white);
+        btnTest.setBackground(Color.white);
+    }//GEN-LAST:event_btnHomeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -567,32 +645,44 @@ public class frmMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Build;
     private javax.swing.JPanel Top;
-    private javax.swing.JButton btnHoc;
+    private javax.swing.JButton btnHome;
     private javax.swing.JButton btnKtra;
+    private javax.swing.JButton btnLearn;
     private javax.swing.JButton btnMusic;
-    private javax.swing.JButton btnProfile;
+    private javax.swing.JButton btnTest;
     private javax.swing.JButton btnThanhTich;
     private javax.swing.JButton btnVideo;
-    private javax.swing.JButton btnVocabulary;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JLabel lblbg;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
+    private javax.swing.JLabel lblLogin;
+    private javax.swing.JLabel lblusername;
     private javax.swing.JMenuItem menuItemBKT;
-    private javax.swing.JMenuItem menuItemLogout;
-    private javax.swing.JMenuItem menuItemLogut;
-    private javax.swing.JMenuItem menuItemReg;
     private javax.swing.JMenuItem menuItemTV;
     private javax.swing.JPanel option;
     private javax.swing.JPanel panelCenter;
